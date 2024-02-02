@@ -1,0 +1,18 @@
+syntax="proto3";
+
+option csharp_namespace = "GrpcService";
+
+package greet;
+
+service BigFileHandler {
+	rpc UploadBigFile(stream RequestInfo) returns (ResponseInfo);
+}
+
+message RequestInfo {
+	string fileType=1;
+	bytes file=2;
+}
+
+message ResponseInfo {
+	string message=1;
+}
